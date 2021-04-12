@@ -45,12 +45,25 @@ contactForm.addEventListener("submit", function (e) {
     const val = document.getElementById(`${field}-input`).value;
     formData[field] = val;
   }
-  console.log({ formData });
 
-  const submitBtn = document.getElementById("submit-btn");
-  submitBtn.value = "Thanks for reaching out!";
-  setTimeout(() => {
-    contactForm.reset();
-    submitBtn.value = "Submit";
-  }, 3000);
+  fetch(
+    "https://z4a5anrf90.execute-api.ap-south-1.amazonaws.com/prod/contact-us",
+    {
+      method: "POST",
+      headers: {
+        Authorisation: "mujtaba",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    }
+  )
+    .then(async (res) => res.json())
+    .then((res) => {
+      const submitBtn = document.getElementById("submit-btn");
+      submitBtn.value = res.message;
+      setTimeout(() => {
+        contactForm.reset();
+        submitBtn.value = "Submit";
+      }, 3000);
+    });
 });

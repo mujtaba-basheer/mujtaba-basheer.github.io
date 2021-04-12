@@ -378,8 +378,7 @@ h6 {
 
 .input-field {
   width: 100%;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   background-color: var(--secondaryColor);
   border-radius: 5px;
   border: 1px solid var(--borderColor);
