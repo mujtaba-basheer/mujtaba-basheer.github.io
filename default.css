@@ -377,7 +377,7 @@ h6 {
 }
 
 .input-field {
-  width: 100%;
+  width: 90%;
   padding: 10px;
   background-color: var(--secondaryColor);
   border-radius: 5px;
@@ -425,5 +425,9 @@ h6 {
 
   #preview {
     width: 280px;
+  }
+
+  .input-field {
+    width: 95%;
   }
 }
